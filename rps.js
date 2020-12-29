@@ -6,11 +6,13 @@ computerRPS = document.querySelector(".computer-rps"),
 playerRPS = document.querySelector(".player-rps"),
 gameResult = document.querySelector(".result"),
 remainingRound = document.querySelector(".remaining-round"),
-userScore = document.querySelector(".user-score");
+userScore = document.querySelector(".user-score"),
+computerScore = document.querySelector(".computer-score");
 
 var USER_SCORE={
     rounds:10,
-    score:0
+    playerScore:0,
+    computerScore:0
 };
 
 
@@ -43,6 +45,7 @@ function shuffleComputerImg(){
 
 function handleStart(){
     if(gameStarted) return;
+    playerRPS.src = 'img/4.png';
     gameResult.innerHTML="RESULT BOARD";
     gameStarted = true;
     timer = setInterval(shuffleComputerImg,SHUFFLE_SPEED);
@@ -51,22 +54,25 @@ function handleStart(){
 startBtn.addEventListener("click",handleStart);
 
 //RESULT HANDLE
-function drawScore(round,score){
+function drawScore(round,pScore,cScore){
     remainingRound.innerHTML = JSON.stringify(round);
-    userScore.innerHTML = JSON.stringify(score);
+    userScore.innerHTML = JSON.stringify(pScore);
+    computerScore.innerHTML = JSON.stringify(cScore);
 }
 
 function handleEnd(){
-    gameResult.innerHTML = `<Game Over>\nYour score: ${USER_SCORE["score"]}`;
+    gameResult.innerHTML = `<Game Over>\nYour score: ${USER_SCORE["playerScore"]}`;
     USER_SCORE["rounds"]=10;
-    USER_SCORE["score"]=0;
-    drawScore(10,0);
+    USER_SCORE["playerScore"]=0;
+    USER_SCORE["computerScore"]=0;
+    drawScore(10,0,0);
 }
 
 function updateScore(result){
     USER_SCORE["rounds"]-=1;
-    if(result==2) USER_SCORE["score"]+=1;
-    drawScore(USER_SCORE["rounds"],USER_SCORE["score"]);
+    if(result==1) USER_SCORE["computerScore"]+=1;
+    if(result==2) USER_SCORE["playerScore"]+=1;
+    drawScore(USER_SCORE["rounds"],USER_SCORE["playerScore"],USER_SCORE["computerScore"]);
 
     if(USER_SCORE["rounds"]==0) handleEnd();
 }
@@ -119,7 +125,7 @@ function handleScissors(){
 
 
 window.addEventListener("load",function(){
-    drawScore(USER_SCORE["rounds"],USER_SCORE["score"]);
+    drawScore(USER_SCORE["rounds"],USER_SCORE["playerScore"],USER_SCORE["computerScore"]);
 })
 
 rockBtn.addEventListener("click",handleRock);

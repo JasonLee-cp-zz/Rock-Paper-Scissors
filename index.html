@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section>
     <!--Title-->
-    <div>
+    <div class="title">
         <h1>Play Rock Paper Scissors Game!</h1>
     </div>
 
@@ -17,26 +19,26 @@
     </div>
 
     <!--User Score-->
-    <div>
-        <span>Remaining Round: </span> <span class="remaining-round"></span>
-        <br>
-        <span>Your Score: </span> <span class="user-score"></span>
+    <div class="scoreboard">
+        <div class="current-computer-score"><span>Computer Score: </span><span class="computer-score"></span></div>
+        <div class="current-score"><span>Your Score: </span><span class="user-score"></span></div>
     </div>
 
     <!--Game Board-->
     <div class="rps-board">
-        <img class="computer-rps" src="img/1.png">
-        <img class="player-rps" src="img/2.png">
+        <img class="computer-rps" src="img/4.png">
+        <img class="player-rps" src="img/4.png">
     </div>
 
     <!--Player Buttons-->
-    <div>
+    <div class="buttons">
         <button class="start-btn" type="button">START</button>
         <button class="rock-btn" type="button">ROCK</button>
         <button class="paper-btn" type="button">PAPER</button>
         <button class="scissors-btn" type="button">SCISSORS</button>
     </div>
-    
+    <div class="rem-round"><span>Remaining Rounds:</span> <span class="remaining-round"></span></div>
     <script defer src="rps.js"></script>
+</section>
 </body>
 </html>
