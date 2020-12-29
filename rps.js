@@ -17,7 +17,7 @@ var USER_SCORE={
 
 
 var timer;
-const SHUFFLE_SPEED = 50;
+const SHUFFLE_SPEED = 30;
 const RPS_NUMBER = {
     rock:1,
     paper:2,
@@ -40,6 +40,7 @@ let gameStarted = false;
 function shuffleComputerImg(){
     const imgNum = getRandom(1,3);
     computerRPS.src = `img/${imgNum}.png`;
+    computerRPS.classList.add("rotate");
     computerRPS.id = imgNum;
 }
 

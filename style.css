@@ -78,3 +78,6 @@ img{
     height:250px;
 }
 
+.rotate{
+    transform: rotateY(180deg);
+}
