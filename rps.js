@@ -9,22 +9,21 @@ remainingRound = document.querySelector(".remaining-round"),
 userScore = document.querySelector(".user-score"),
 computerScore = document.querySelector(".computer-score");
 
+var timer;
+const SHUFFLE_SPEED = 30;
+let gameStarted = false;
+
 var USER_SCORE={
     rounds:10,
     playerScore:0,
     computerScore:0
 };
 
-
-var timer;
-const SHUFFLE_SPEED = 30;
 const RPS_NUMBER = {
     rock:1,
     paper:2,
     scissors:3
 }
-
-
 
 function getRandom(x,y){
     return Math.floor(Math.random()*(y-x+1))+x;
@@ -34,7 +33,6 @@ function getImgSrcNum(x){
     return `img/${x}.png`;
 }
 
-let gameStarted = false;
 
 //START BUTTON
 function shuffleComputerImg(){
