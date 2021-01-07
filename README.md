@@ -1,4 +1,4 @@
-# Rock-Paper-Scissors Game
+# Rock-Paper-Scissors Game :smiley:
 
 ### Link: https://jasonlee-cp.github.io/Rock-Paper-Scissors/
 
